@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @theme{
   --color-primary: #457B9D;
   --color-secondary: #A8DADC;
@@ -17,8 +18,3 @@
     --color-highlight2: #A8DADC;
   }
 } */
-
-body {
-  background-color: var(--color-neutral);
-  color: var(--color-highlight2);
-}

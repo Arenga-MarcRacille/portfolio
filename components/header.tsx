@@ -1,20 +1,33 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-primary text-neutral sticky top-0 z-50 shadow-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">Marc's Portfolio</h1>
+    <header className="bg-highlight2 text-neutral sticky top-0 z-50 shadow-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-center items-center">
+
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex space-x-6">
-          <a href="#about" className="hover:text-highlight">About</a>
-          <a href="#projects" className="hover:text-highlight">Projects</a>
-          <a href="#contact" className="hover:text-highlight">Contact</a>
+        <nav className="hidden md:flex text-lg font-extrabold">
+          <div className="flex gap-4 items-center">  
+            <a href="#about" className="hover:text-secondary hover:underline transition duration-300 ease-in-out ">About Me</a>
+            <a href="#skills" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Skills</a>
+            <a href="#contact" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Experiences</a>
+          </div>  
+
+          <Link href="/"> 
+              <img src="./logo/MyLogo.png" alt="Logo" className="h-20 w-40 "/>
+          </Link>
+        
+          <div className="flex gap-4 items-center">
+            <a href="#about" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Featured Projects</a>
+            <a href="#projects" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Let's Talk!</a>
+          </div>
+
         </nav>
 
         {/* Mobile menu button */}
@@ -32,10 +45,12 @@ export const Header = () => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav className="md:hidden bg-primary text-neutral px-6 py-4 space-y-3">
-          <a href="#about" className="block hover:text-highlight">About</a>
-          <a href="#projects" className="block hover:text-highlight">Projects</a>
-          <a href="#contact" className="block hover:text-highlight">Contact</a>
+        <nav className="md:hidden bg-highlight2 text-neutral px-6 py-4 space-y-3 font-semibold">
+          <a href="#about" className="block hover:text-secondary">About</a>
+          <a href="#projects" className="block hover:text-secondary">Projects</a>
+          <a href="#contact" className="block hover:text-secondary">Contact</a>
+          <a href="#about" className="block hover:text-secondary">Featured Projects</a>
+          <a href="#projects" className="block hover:text-secondary">Let's Talk!</a>
         </nav>
       )}
     </header>
