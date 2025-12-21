@@ -2,6 +2,7 @@
 import { AnimatedGradient } from "@/components/backgrounds/animatedGradient";
 import { FloatingBlobs } from "@/components/backgrounds/floatingBlobs";
 import { AboutMe } from "@/components/sections/aboutMe";
+import { Experiences } from "@/components/sections/experiences";
 import { Skills } from "@/components/sections/skills";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -60,6 +61,7 @@ export default function Home() {
 
       <AboutMe />
       <Skills />
+      <Experiences />
     </main>
   );
 }
