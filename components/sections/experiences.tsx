@@ -19,7 +19,7 @@ export const Experiences = () => {
     const [activeExp, setActiveExp] = useState<null | {
         title: string;
         period: string;
-        description: string;
+        description: string [];
         image: string | null;
     }>(null);
 
@@ -57,9 +57,11 @@ export const Experiences = () => {
                 data={{
                     title: "Pixel 8",
                     period: "Internship · 6 months · 2023",
-                    description:
-                    `Built internal tools, collaborated with IT Ops, 
-                     workflows, and supported production systems.`,
+                    description: [`Web Design Intern at Pixel 8, where I designed and implemented responsive
+                    web interfaces for client-facing projects. Collaborated with stakeholders to translate
+                    requirements into clear, usable designs, and led a small team of interns to ensure
+                    quality and consistency. Primarily used Figma for wireframing, prototyping, and design
+                    handoff.`],
                     image: "./images/pixel8.jpg",
                 }}
                 onClick={setActiveExp}
@@ -69,9 +71,14 @@ export const Experiences = () => {
                 data={{
                     title: "Brother Industries Philippines, Inc.",
                     period: "December 2023 - Present",
-                    description:
-                    `In today’s fast-paced digital landscape, 
-                    fostering seamless collaboration among Developers and IT Operations.`,
+                    description: [
+                      "This role marked the beginning of my professional career at Brother Industries Philippines, Inc. I currently work as a Full Stack Developer, responsible for building and maintaining applications that support the company’s manufacturing operations using PHP, ASP.NET Core, and PostgreSQL.",
+
+                      "After six months, I was assigned to an automation project where I designed and implemented robotic process automations using Kofax RPA (BizRobo). The solution eliminated manual data entry tasks previously handled by two employees. I presented the project to top management and was recognized with a 'Leader Staff' award for effectively communicating with clients and delivering the solution end-to-end.",
+
+                      "I was also selected as a company representative to visit Shenzhen, China, where I gathered insights on emerging technologies and trends in the manufacturing industry."
+                    ],
+
                     image: "./images/brother.png",
                 }}
                 onClick={setActiveExp}

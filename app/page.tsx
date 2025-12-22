@@ -1,15 +1,19 @@
 'use client'
 import { AnimatedGradient } from "@/components/backgrounds/animatedGradient";
 import { FloatingBlobs } from "@/components/backgrounds/floatingBlobs";
+import Metadata from "@/components/misc/Metadata";
 import { AboutMe } from "@/components/sections/aboutMe";
+import { Contact } from "@/components/sections/contact";
 import { Experiences } from "@/components/sections/experiences";
 import { Skills } from "@/components/sections/skills";
 import { motion } from "motion/react";
 import Image from "next/image";
 
+
 export default function Home() {
   return (
     <main className="relative font-sans">
+      <Metadata seoTitle="Portfolio" seoDescription="Welcome to my portfolio!" />
       {/* Background */}
       <AnimatedGradient />
 
@@ -53,7 +57,7 @@ export default function Home() {
                 hover:bg-highlight hover:scale-105
               "
             >
-              Learn More About Me
+              See what I’ve built
             </a>
           </div>
         </main>
@@ -62,6 +66,7 @@ export default function Home() {
       <AboutMe />
       <Skills />
       <Experiences />
+      <Contact />
     </main>
   );
 }
@@ -99,9 +104,18 @@ function WelcomeCard() {
 
       <div className="flex gap-4 justify-center md:justify-start mt-6">
         {ContactLinks("/icons/skill-icons_gmail-light.svg", "mailto:arenga.marc.racille@gmail.com", "Email")}
-        {ContactLinks("/icons/logos_facebook.svg", "https://www.facebook.com/marcracille.arenga", "Facebook")}
         {ContactLinks("/icons/bi_github.svg", "https://github.com/Arenga-MarcRacille", "GitHub")}
         {ContactLinks("/icons/skill-icons_linkedin.svg", "https://www.linkedin.com/in/marc-racille-arenga-547354265/", "LinkedIn")}
+      <small className="text-[var(--color-highlight2)] mt-4 block opacity-70">
+        Prefer social?  
+        <a
+          href="https://www.facebook.com/marcracille.arenga"
+          target="_blank"
+          className="underline ml-1"
+        >
+          Facebook
+        </a>
+      </small>
       </div>
     </motion.div>
   );

@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 type Experience = {
   title: string;
   period: string;
-  description: string;
+  description: string[]; // 👈 array, not string
   image: string | null;
 };
+
 
 type Props = {
   data: Experience;
@@ -49,8 +50,8 @@ export const ExperienceCard = ({ data, onClick }: Props) => {
         {data.period}
       </small>
 
-      <p className="text-[var(--color-highlight2)] leading-relaxed line-clamp-3 md:line-clamp-3">
-        {data.description}
+      <p className="text-[var(--color-highlight2)] leading-relaxed line-clamp-3">
+        {data.description[0]}
       </p>
     </motion.div>
   );

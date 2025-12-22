@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 type Experience = {
   title: string;
   period: string;
-  description: string;
+  description: string[];
   image: string | null;
 };
+
 
 type Props = {
   experience: Experience | null;
@@ -26,10 +27,13 @@ export const ExperienceModal = ({ experience, onClose }: Props) => {
       >
         <motion.div
           className="
-            relative max-w-lg w-full mx-4
+            relative w-full max-w-lg mx-4
             rounded-2xl p-6
             bg-[var(--color-neutral)]
             shadow-2xl
+            max-h-[85dvh]
+            overflow-y-auto
+            md:max-h-[75dvh]
           "
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -37,6 +41,7 @@ export const ExperienceModal = ({ experience, onClose }: Props) => {
           transition={{ duration: 0.3 }}
           onClick={(e) => e.stopPropagation()}
         >
+
           <div className="text-end mb-2">
             <button
               onClick={onClose}
@@ -63,9 +68,14 @@ export const ExperienceModal = ({ experience, onClose }: Props) => {
             {experience.period}
           </small>
 
-          <p className="text-[var(--color-highlight2)] leading-relaxed">
-            {experience.description}
-          </p>
+          <div className="text-[var(--color-highlight2)] leading-relaxed space-y-4 mt-4">
+            {experience.description.map((paragraph, index) => (
+              <p key={index}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
         </motion.div>
       </motion.div>
     </AnimatePresence>
