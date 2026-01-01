@@ -48,7 +48,7 @@ export default function Home() {
               className="hidden md:block rounded-full w-80 lg:w-96"
             />
             <a
-              href="#about"
+              href="/projects"
               className="
                 mt-4 px-4 py-2
                 bg-highlight2 text-neutral
