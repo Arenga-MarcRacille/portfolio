@@ -6,7 +6,7 @@ export const AboutMe = () => {
       id="about"
       className="relative z-10 flex justify-center"
     >
-        <div className=" flex flex-col w-full max-w-7xl px-6 py-8 md:flex-row md:px-12 md:py-16 md:justify-between md:items-center">
+        <div className=" flex flex-col w-full max-w-7xl px-6 py-8 md:flex-row md:px-12 md:mt-24 md:justify-between md:items-center">
             {/* ICON CLUSTER */}
             <div className="relative h-[320px] w-full md:w-2/5 mb-8 md:mb-0">
             <motion.img
