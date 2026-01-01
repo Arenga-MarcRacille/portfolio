@@ -6,7 +6,7 @@ export const Skills = () => {
       className="relative z-10 flex justify-center"
     >
 
-        <div className=" flex flex-col w-full max-w-7xl px-6 py-8 md:flex-row md:px-12 md:py-16 md:justify-between md:items-center">
+        <div className=" flex flex-col w-full max-w-7xl px-6 py-8 md:flex-row md:px-12 md:mt-24 md:justify-between md:items-center">
             {/* TEXT */}
             <motion.div
                 className="z-10 w-full p-6 bg-[var(--color-neutral)]/70 backdrop-blur-md rounded-2xl shadow-lg"

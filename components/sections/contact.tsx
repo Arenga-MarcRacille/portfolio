@@ -14,11 +14,11 @@ export const Contact = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="text-3xl font-bold mb-4 text-[var(--color-highlight)]">
-                    Let’s Talk
+                        Let’s Talk
                     </h2>
 
                     <p className="text-[var(--color-highlight2)] mb-6 leading-relaxed max-w-xl">
-                    I’m open to opportunities, collaborations, or just a friendly chat about tech, games, or design. If you think I’d be a good fit, let’s connect.
+                        I’m open to opportunities, collaborations, or just a friendly chat about tech, games, or design. If you think I’d be a good fit, let’s connect.
                     </p>
 
                     <div className="flex flex-wrap gap-4">

@@ -14,9 +14,10 @@ export const Header = () => {
         {/* Desktop nav */}
         <nav className="hidden md:flex text-lg font-extrabold">
           <div className="flex gap-4 items-center">  
-            <a href="#about" className="hover:text-secondary hover:underline transition duration-300 ease-in-out ">About Me</a>
-            <a href="#skills" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Skills</a>
-            <a href="#experiences" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Experiences</a>
+            <a href="/#about" className="hover:text-secondary hover:underline transition duration-300 ease-in-out ">About Me</a>
+            <a href="/#skills" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Skills</a>
+            <a href="/#experiences" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Experiences</a>
+            <a href="/awards" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Awards</a>
           </div>  
 
           <Link href="/"> 
@@ -25,7 +26,8 @@ export const Header = () => {
         
           <div className="flex gap-4 items-center">
             <a href="/projects" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Featured Projects</a>
-            <a href="#contact" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Let's Talk!</a>
+            <a href="/certificates" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Certificates</a>
+            <a href="/#contact" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Let's Talk!</a>
           </div>
 
         </nav>
@@ -46,11 +48,11 @@ export const Header = () => {
       {/* Mobile menu */}
       {menuOpen && (
         <nav className="md:hidden bg-highlight2 text-neutral px-6 py-4 space-y-3 font-semibold">
-          <a href="#about" className="block hover:text-secondary">About</a>
-          <a href="#skills" className="block hover:text-secondary">Skills</a>
-          <a href="#experiences" className="block hover:text-secondary">Experiences</a>
-          <a href="#about" className="block hover:text-secondary">Featured Projects</a>
-          <a href="#contact" className="block hover:text-secondary">Let's Talk!</a>
+          <a href="/#about" className="block hover:text-secondary">About</a>
+          <a href="/#skills" className="block hover:text-secondary">Skills</a>
+          <a href="/#experiences" className="block hover:text-secondary">Experiences</a>
+          <a href="/projects" className="block hover:text-secondary">Featured Projects</a>
+          <a href="/#contact" className="block hover:text-secondary">Let's Talk!</a>
         </nav>
       )}
     </header>

@@ -29,7 +29,7 @@ export const Experiences = () => {
       id="experiences"
       className="relative z-10 flex justify-center"
     >
-      <div className="w-full max-w-7xl px-6 py-16 md:px-12 md:py-20">
+      <div className="w-full max-w-7xl px-6 py-16 md:px-12 md:mt-24">
 
         {/* Section Title */}
         <motion.h2
