@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Marc Racille Arenga Portfolio",
   description: "Portfolio of Marc Racille Arenga",
+  other: {"google-site-verification": "ZJZ7lgM7gW-t1dRZPxv4TkyiJJTZsQefpH332I8V2L4"},
 };
 
 export default function RootLayout({
