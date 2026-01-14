@@ -52,6 +52,7 @@ export const Header = () => {
           <a href="/#skills" className="block hover:text-secondary">Skills</a>
           <a href="/#experiences" className="block hover:text-secondary">Experiences</a>
           <a href="/projects" className="block hover:text-secondary">Featured Projects</a>
+          <a href="/certificates" className="block hover:text-secondary">Certificates</a>
           <a href="/#contact" className="block hover:text-secondary">Let's Talk!</a>
         </nav>
       )}
