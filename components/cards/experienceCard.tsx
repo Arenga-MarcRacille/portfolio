@@ -22,7 +22,7 @@ export const ExperienceCard = ({ data, onClick }: Props) => {
         md:min-w-0
         relative overflow-hidden
         rounded-2xl p-6
-        bg-[var(--color-neutral)]/75
+        bg-neutral/75
         backdrop-blur-md
         border border-white/20
         shadow-lg
@@ -42,15 +42,15 @@ export const ExperienceCard = ({ data, onClick }: Props) => {
         className="rounded-xl object-cover mb-6"
       />
 
-      <h5 className="text-[var(--color-highlight)] text-2xl font-semibold">
+      <h5 className="text-highlight text-2xl font-semibold">
         {data.title}
       </h5>
 
-      <small className="italic text-[var(--color-primary)] block mb-3">
+      <small className="italic text-primary block mb-3">
         {data.period}
       </small>
 
-      <p className="text-[var(--color-highlight2)] leading-relaxed line-clamp-3">
+      <p className="text-highlight2 leading-relaxed line-clamp-3">
         {data.description[0]}
       </p>
     </motion.div>

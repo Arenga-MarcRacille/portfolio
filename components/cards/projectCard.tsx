@@ -21,7 +21,7 @@ export const ProjectCard = ({ data }: Props) => {
       <motion.div
         className="
           relative overflow-hidden rounded-2xl p-6
-          bg-[var(--color-neutral)]/75 backdrop-blur-md
+          bg-neutral/75 backdrop-blur-md
           border border-white/20 shadow-lg
           transition-all duration-300
           hover:shadow-2xl hover:-translate-y-1
@@ -39,7 +39,7 @@ export const ProjectCard = ({ data }: Props) => {
           />
         )}
 
-        <h5 className="text-[var(--color-highlight)] text-2xl font-semibold mb-2">
+        <h5 className="text-highlight text-2xl font-semibold mb-2">
           {data.title}
         </h5>
 
@@ -47,14 +47,14 @@ export const ProjectCard = ({ data }: Props) => {
           {data.stack.map((tech) => (
             <span
               key={tech}
-              className="bg-[var(--color-primary)]/20 text-[var(--color-primary)] rounded px-2 py-1 text-xs"
+              className="bg-primary/20 text-primary rounded px-2 py-1 text-xs"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <p className="text-[var(--color-highlight2)] line-clamp-3">
+        <p className="text-highlight2 line-clamp-3">
           {data.description}
         </p>
       </motion.div>
