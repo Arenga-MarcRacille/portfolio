@@ -33,7 +33,7 @@ export const Experiences = () => {
 
         {/* Section Title */}
         <motion.h2
-          className="text-3xl font-bold mb-10 text-[var(--color-highlight)]"
+          className="text-3xl font-bold mb-10 text-highlight"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -93,8 +93,8 @@ export const Experiences = () => {
             className={`
                 h-2 w-2 rounded-full transition-all
                 ${activeIndex === i
-                ? "bg-[var(--color-highlight)] w-6"
-                : "bg-[var(--color-primary)]/50"}
+                ? "bg-highlight w-6"
+                : "bg-primary/50"}
             `}
             />
         ))}
