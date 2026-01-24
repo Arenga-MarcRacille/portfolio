@@ -17,7 +17,7 @@ export const Header = () => {
             <a href="/#about" className="hover:text-secondary hover:underline transition duration-300 ease-in-out ">About Me</a>
             <a href="/#skills" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Skills</a>
             <a href="/#experiences" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Experiences</a>
-            <a href="/awards" className="hover:text-secondary hover:underline transition duration-300 ease-in-out">Awards</a>
+            
           </div>  
 
           <Link href="/"> 
