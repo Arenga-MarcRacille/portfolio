@@ -14,7 +14,7 @@ export default function LogisticsCaseStudy() {
         <div className="w-full max-w-4xl">
           <Link
             href="/projects"
-            className="text-[var(--color-primary)] mb-6 inline-block hover:underline"
+            className="text-[var(--color-primary)] mb-6 inline-block hover:underline font-medium"
           >
             ← Back to Projects
           </Link>
