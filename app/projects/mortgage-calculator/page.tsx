@@ -1,5 +1,5 @@
 "use client";
-import { useState, ChangeEvent, FormEvent } from "react"; // Added types
+import { useState, ChangeEvent, FormEvent } from "react";
 import { AnimatedGradient } from "@/components/backgrounds/animatedGradient";
 import Link from "next/link";
 
@@ -11,6 +11,7 @@ export default function MortgageCalculator() {
   
   const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
   const [isCalculated, setIsCalculated] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false); // NEW: Loading state
 
   // Properly typed Submit Event
   const handleCalculateClientSide = (e: FormEvent<HTMLFormElement>) => {
@@ -30,10 +31,11 @@ export default function MortgageCalculator() {
     setMonthlyPayment(amortization);
     setIsCalculated(true);
   };
-
+  
   const handleCalculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsCalculated(false); // Reset while loading
+    setIsLoading(true); // Start loading
+    setIsCalculated(false); 
 
     const payload = {
       totalPrice: price,
@@ -55,12 +57,13 @@ export default function MortgageCalculator() {
 
       const data = await response.json();
       
-      // Update state with the result from the C# Backend
       setMonthlyPayment(data.monthlyAmortization);
       setIsCalculated(true);
     } catch (error) {
       console.error("Fetch error:", error);
       alert("Backend is currently unreachable. Check CORS or SSL status.");
+    } finally {
+      setIsLoading(false); // Stop loading regardless of success/fail
     }
   };
 
@@ -70,10 +73,7 @@ export default function MortgageCalculator() {
 
       <section className="relative z-10 flex justify-center px-6 py-12 md:px-12">
         <div className="w-full max-w-4xl">
-          <Link
-            href="/projects"
-            className="text-[var(--color-primary)] mb-6 inline-block hover:underline font-medium"
-          >
+          <Link href="/projects" className="text-[var(--color-primary)] mb-6 inline-block hover:underline font-medium">
             ← Back to Projects
           </Link>
 
@@ -87,10 +87,9 @@ export default function MortgageCalculator() {
 
           <div className="bg-white/80 backdrop-blur-sm border border-[var(--color-secondary)] rounded-2xl p-6 md:p-8 shadow-lg">
             <form onSubmit={handleCalculate} className="space-y-6">
+              {/* --- INPUTS --- */}
               <div>
-                <label className="block text-[var(--color-highlight2)] font-semibold mb-2">
-                  Total Contract Price (PHP)
-                </label>
+                <label className="block text-[var(--color-highlight2)] font-semibold mb-2">Total Contract Price (PHP)</label>
                 <input
                   type="number"
                   value={price}
@@ -101,9 +100,7 @@ export default function MortgageCalculator() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[var(--color-highlight2)] font-semibold mb-2">
-                    Down Payment (%)
-                  </label>
+                  <label className="block text-[var(--color-highlight2)] font-semibold mb-2">Down Payment (%)</label>
                   <input
                     type="number"
                     value={dpPercent}
@@ -112,13 +109,9 @@ export default function MortgageCalculator() {
                   />
                 </div>
                 <div>
-                  <label className="block text-[var(--color-highlight2)] font-semibold mb-2">
-                    Interest Rate (%)
-                  </label>
+                  <label className="block text-[var(--color-highlight2)] font-semibold mb-2">Interest Rate (%)</label>
                   <input
-                    type="number"
-                    step="0.1"
-                    value={rate}
+                    type="number" step="0.1" value={rate}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setRate(Number(e.target.value))}
                     className="w-full bg-[var(--color-neutral)] border border-[var(--color-primary)]/30 rounded-lg px-4 py-3"
                   />
@@ -137,15 +130,30 @@ export default function MortgageCalculator() {
                 />
               </div>
 
+              {/* --- CALCULATE BUTTON WITH LOADING STATE --- */}
               <button
                 type="submit"
-                className="w-full bg-[var(--color-highlight)] text-white font-bold py-4 rounded-lg shadow-md hover:opacity-90 transition active:scale-[0.98]"
+                disabled={isLoading}
+                className={`w-full text-white font-bold py-4 rounded-lg shadow-md transition flex justify-center items-center gap-2 ${
+                    isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-[var(--color-highlight)] hover:opacity-90 active:scale-[0.98]"
+                }`}
               >
-                Calculate Amortization
+                {isLoading ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Calculating...
+                  </>
+                ) : (
+                  "Calculate Amortization"
+                )}
               </button>
             </form>
 
-            {isCalculated && (
+            {/* --- RESULTS --- */}
+            {isCalculated && !isLoading && (
               <div className="mt-8 pt-6 border-t border-[var(--color-secondary)] text-center animate-in fade-in slide-in-from-bottom-4">
                 <p className="text-[var(--color-highlight2)]/70 text-sm mb-2">Estimated Monthly Payment</p>
                 <div className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)]">
@@ -155,18 +163,12 @@ export default function MortgageCalculator() {
             )}
           </div>
 
-          {/* THE SSL-VERIFIED BACKEND LINK */}
           <section className="mt-12 p-6 bg-[var(--color-neutral)] border-l-4 border-[var(--color-highlight)] rounded-r-lg">
             <h2 className="text-xl font-semibold mb-2 text-[var(--color-highlight2)]">Backend Architecture</h2>
             <p className="text-[var(--color-highlight2)] mb-4">
               Data integrity is handled via a secure <strong>ASP.NET Core</strong> backend. 
-              The API is fully documented and accessible for cross-platform integration.
             </p>
-            <a 
-                href="https://ghost16-001-site1.site4future.com/swagger/index.html" 
-                target="_blank"
-                className="inline-flex items-center text-[var(--color-primary)] font-bold hover:underline"
-            >
+            <a href="https://ghost16-001-site1.site4future.com/swagger/index.html" target="_blank" className="inline-flex items-center text-[var(--color-primary)] font-bold hover:underline">
                 🔒 View Secure API Documentation (Swagger) →
             </a>
           </section>
