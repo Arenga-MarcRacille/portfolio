@@ -21,7 +21,7 @@ export const Header = () => {
           </div>  
 
           <Link href="/"> 
-              <img src="./logo/MyLogo.png" alt="Logo" className="h-20 w-40 "/>
+              <img src="/logo/MyLogo.png" alt="Logo" className="h-20 w-40 "/>
           </Link>
         
           <div className="flex gap-4 items-center">

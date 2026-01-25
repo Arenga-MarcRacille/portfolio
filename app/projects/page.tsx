@@ -40,6 +40,14 @@ const projects = [
     slug: "rpa-workflow-automation",
     image: null,
   },
+  {
+    title: "Mortgage Calculator",
+    description:
+      "Web application for calculating monthly mortgage payments, interest rates, and amortization schedules.",
+    stack: ["ASP.NET", "C#", "HTML", "CSS", "JavaScript"],
+    slug: "mortgage-calculator",
+    image: null,
+  }
 ];
 
 export default function Projects() {
